@@ -31,6 +31,7 @@ function searchCondition(){
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '';
 
+
     fetch ('health_analysis.json')
         .then (response => response.json())
         .then (data => {
@@ -52,10 +53,9 @@ function searchCondition(){
                 resultDiv.innerHTML = 'Condition not found.';
             }
         })
-
         .catch(error => {
-            console.error('Error', error);
-            resultDiv.innerHTML = 'An error has occured while fetching the data.';
+            console.error('Fetch error:', error);
+            resultDiv.innerHTML = 'An error occurred while fetching the data.';
         });
     }
         btnSearch.addEventListener('click', searchCondition);
